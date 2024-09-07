@@ -16,4 +16,16 @@ This is a simple Currency Converter application built with PyQt5. It allows user
 
 - Python 3.6 or higher
 - PyQt5
+- PyQt5 tools (for UI design)
+- PyInstaller (for packaging)
 
+- ## Installation
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/yourusername/auth_gui_app.git
+   python -m venv myenv
+   source myenv/bin/activate
+   pip install -r requirements.txt
+   ```
