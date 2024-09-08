@@ -1,12 +1,17 @@
 import sys
+import os
 from PyQt5.QtWidgets import QApplication, QDialog, QLineEdit, QComboBox, QPushButton, QLabel
 from PyQt5.uic import loadUi
 
+def resource_path(relative_path):
+    """ Get the absolute path to the resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
 class ConverterPage(QDialog):
     def __init__(self, main_window):
         super().__init__()
-        loadUi('converter.ui', self)  # Load the converter UI file
+        loadUi(resource_path('converter.ui'), self)  # Load the converter UI file using resource_path
 
         # Reference to the main login window
         self.main_window = main_window
@@ -72,6 +77,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     # Initialize and show the login window
+    from main import Login  # Import Login from main
     login_window = Login()
     login_window.show()
 
