@@ -23,7 +23,7 @@ This is a simple Currency Converter application built with PyQt5. It allows user
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/auth_gui_app.git
+   https://github.com/pakhuridze/auth_gui_app
    python -m venv myenv
    source myenv/bin/activate
    pip install -r requirements.txt
