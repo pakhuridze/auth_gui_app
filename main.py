@@ -5,19 +5,14 @@ from PyQt5.uic import loadUi
 from converter import ConverterPage  # Import the ConverterPage class
 
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
-    try:
-        base_path = sys._MEIPASS
-    except AttributeError:
-        base_path = os.path.abspath(".")
-
+    """ Get the absolute path to the resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(base_path, relative_path)
 
 class Login(QDialog):
     def __init__(self):
         super().__init__()
-        ui_path = resource_path('login.ui')
-        loadUi(ui_path, self)
+        loadUi(resource_path('login.ui'), self)  # Use resource_path for loading UI
         self.loginbutton.clicked.connect(self.login_function)
 
     def login_function(self):
